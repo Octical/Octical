@@ -2,9 +2,9 @@ import React from 'react';
 import { View, StyleSheet, ImageBackground } from 'react-native';
 import FacilityIcon from '../components/FacilityIcon';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../types';
 
-type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+// Directly use 'any' for navigation prop type if you don't need specific types
+type HomeScreenNavigationProp = StackNavigationProp<any, 'Home'>;
 
 type Props = {
   navigation: HomeScreenNavigationProp;
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
-    alignItems: 'center',
-    padding: 20,
+    alignItems: 'flex-start', // Keep aligning icons at the top
+    paddingVertical: 80, // Increased padding to move icons further down
   },
 });

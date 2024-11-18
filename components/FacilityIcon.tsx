@@ -18,27 +18,27 @@ export default function FacilityIcon({ name, image, onPress }: FacilityIconProps
 
 const styles = StyleSheet.create({
   iconContainer: {
-    width: 100,
-    height: 120,
+    width: 160, // Retain the rectangle shape for the icon
+    height: 200, // Retain the height
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    margin: 10, // Add space between icons
     backgroundColor: '#fff',
-    borderRadius: 15,
+    borderRadius: 10, // Subtle rounding
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
-    shadowRadius: 5,
-    elevation: 5,
+    shadowRadius: 6,
+    elevation: 6,
   },
   iconImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 10,
-    marginBottom: 5,
+    width: 140, // Increased the width of the image
+    height: 140, // Increased the height of the image
+    borderRadius: 10, // Matching border radius
+    marginBottom: 10, // Maintain spacing between image and text
   },
   iconText: {
-    fontSize: 14,
+    fontSize: 16, // Adjusted text size
     fontWeight: 'bold',
     color: '#333',
   },
