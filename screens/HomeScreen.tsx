@@ -30,6 +30,11 @@ export default function HomeScreen({ navigation }: Props) {
           />
         ))}
       </View>
+      <FacilityIcon
+            name={"Upload"}
+            image={require('../assets/gym.png')}
+            onPress={() => navigation.navigate('UploadImg', { name: "Upload Image" })}
+          />
     </ImageBackground>
   );
 }
