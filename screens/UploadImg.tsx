@@ -9,6 +9,7 @@ interface BlobData {
 export default function UploadImg() {
   const inputFileRef = useRef<HTMLInputElement | null>(null);
   const [blob, setBlob] = useState<BlobData | null>(null);
+  const [selectedPlace, setSelectedPlace] = useState<string>('gym');
 
   return (
     <>
@@ -25,12 +26,13 @@ export default function UploadImg() {
 
             try {
               const response = await fetch(
-                `http://localhost:5000/upload?filename=${file.name}`,
+                `http://localhost:5001/upload-${selectedPlace}?filename=${file.name}`,
                 {
                   method: 'POST',
                   body: file,
                 },
               );
+              console.log(selectedPlace);
 
               const newBlob: BlobData = await response.json();
               setBlob(newBlob);
@@ -41,6 +43,15 @@ export default function UploadImg() {
         }}
       >
         <input name="file" ref={inputFileRef} type="file" required />
+        <select
+          value={selectedPlace}
+          onChange={(e) => setSelectedPlace(e.target.value)}
+        >
+          <option value="gym">Gym</option>
+          <option value="library">Library</option>
+          <option value="laundry">Laundry</option>
+          <option value="pool">Pool Table</option>
+        </select>
         <button type="submit">Upload</button>
       </form>
       {blob && (
